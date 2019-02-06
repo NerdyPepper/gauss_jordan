@@ -13,7 +13,7 @@ fn main() {
 
     for i in 0..SIZE-1 {
         for j in i..SIZE-1 {
-            if system[i][i] == 0.0 {
+            if system[i][i] == 0f32 {
                 continue;
             } else {
                 let factor = system[j + 1][i] as f32 / system[i][i] as f32;
@@ -29,7 +29,7 @@ fn main() {
     print_2d(system);
 
     for i in (1..SIZE).rev() {
-        if system[i][i] == 0.0 {
+        if system[i][i] == 0f32 {
             continue;
         } else {
             for j in (1..i+1).rev() {
@@ -44,6 +44,19 @@ fn main() {
     println!("\n{}", "-".repeat(20));
     println!("Gaussian eliminated:");
     print_2d(system);
+
+    println!("\n{}", "-".repeat(20));
+
+    for i in 0..SIZE {
+        if system[i][i] == 0f32 {
+            println!("Infnitely many solutions");
+        }
+        else {
+            system[i][SIZE] /= system[i][i] as f32;
+            system[i][i] = 1f32;
+            println!("X{} = {}", i + 1, system[i][SIZE]);
+        }
+    }
 }
 
 fn print_2d( system: [[f32; SIZE + 1]; SIZE] ) {
