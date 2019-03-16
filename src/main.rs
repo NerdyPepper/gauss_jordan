@@ -1,12 +1,13 @@
-const SIZE: usize = 3;
+const SIZE: usize = 4;
 
+// TODO write tests
 fn main() {
     let mut system: [[f32; SIZE + 1]; SIZE] = [
-        // A , A   , A    , B
-        [1.0 , 3.0 , 4.0  , 3.0]  ,
-        [2.0 , 7.0 , 3.0 , -7.0]  ,
-        [2.0 , 8.0 , 6.0  , -4.0]
-    ] ;
+        [1.0 , 2.0 , 1.0  , -1.0 , -2.0] ,
+        [2.0 , 3.0 , -1.0 , 2.0  , 7.0]  ,
+        [1.0 , 1.0 , 3.0  , -2.0 , -6.0] ,
+        [1.0 , 1.0 , 1.0  , 1.0  , 2.0]
+    ];
 
     println!("Original system: ");
     print_2d(system);
